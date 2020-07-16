@@ -98,7 +98,11 @@ public class Menu {
                         objScanner = new Scanner(System.in);
                         opc = objScanner.nextInt();
                         opcMenu(opc);
-                }
+                    }
+                default:
+                   System.out.println("OPÇÃO INVÁLIDA");
+                   Thread.sleep(3000);
+                   break;
             }
                                                 // SAIR DO PROGRAMA
         }else if (opc == 3){
