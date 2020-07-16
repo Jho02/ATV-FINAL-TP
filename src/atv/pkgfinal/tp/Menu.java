@@ -28,39 +28,41 @@ public class Menu {
             opc = objScanner.nextInt();
                                                 
                                                   // ACESSO A ÁREA CADASTRO ALUNO
-            if(opc == 1){
-                objAluno = new Aluno();
-                objAluno.cadastroAluno();
-                listaMenu();
-                Scanner objScanner = new Scanner(System.in);
-                opc = objScanner.nextInt();
-                opcMenu(opc);
-                
+            switch(opc){
+                case 1:
+                    objAluno = new Aluno();
+                    objAluno.cadastroAluno();
+                    listaMenu();
+                    Scanner objScanner = new Scanner(System.in);
+                    opc = objScanner.nextInt();
+                    opcMenu(opc);
+                    break;               
                                                      // ACESSO A ÁREA EXIBIR DADOS ALUNO
-            }else if(opc == 2){
+            case 2 :
                 if(objAluno == null){
                     System.out.println(" Nenhum aluno foi cadastrado! ");
                     Thread.sleep(3000);
                     objMenu = new Menu();
                     listaMenu();
-                    Scanner objScanner = new Scanner(System.in);
+                    objScanner = new Scanner(System.in);
                     opc = objScanner.nextInt();
                     opcMenu(opc);
                 }else if(objAluno != null){
                     objAluno.dadosAluno();
                     Thread.sleep(3000);
                     listaMenu();
-                    Scanner objScanner = new Scanner(System.in);
+                    objScanner = new Scanner(System.in);
                     opc = objScanner.nextInt();
                     opcMenu(opc);    
                 }
-            }else{
+                break;
+            default:
                 System.out.println("OPÇÃO INVÁLIDA!");
                 Thread.sleep(3000);
                 System.exit(0);
+                break;
             }
-                                                // ACESSO A ÁREA DE PROFESSOR
-                                                
+                                                // ACESSO A ÁREA DE PROFESSOR                                                
         }else if(opc == 2){
                 System.out.println("VOCÊ ACESSOU A ÁREA DE PROFESSOR");
             System.out.println("===================================");
@@ -68,37 +70,36 @@ public class Menu {
             System.out.println("DIGITE 1 - PARA CADASTRAR ");
             System.out.println("DIGITE 2 - PARA EXIBIR DADOS ");
             objScanner = new Scanner(System.in);
-            opc = objScanner.nextInt();
-                                        
+            opc = objScanner.nextInt();                                        
                                              // ACESSO A ÁREA CADASTRO PROFESSOR
-            if(opc == 1){
-                objProfessor = new Professor();
-                objProfessor.cadastroProfessor();
-                listaMenu();
-                Scanner objScanner = new Scanner(System.in);
-                opc = objScanner.nextInt();
-                opcMenu(opc);
-                
-                                              // ACESSO A ÁREA EXIBIR DADOS PROFESSOR
-            }else if(opc == 2){
-                if(objProfessor == null){
-                    System.out.println(" Nenhum Professor foi cadastrado! ");
-                    Thread.sleep(3000);
-                    objMenu = new Menu();
+            switch(opc){
+                case 1 :
+                    objProfessor = new Professor();
+                    objProfessor.cadastroProfessor();
                     listaMenu();
                     Scanner objScanner = new Scanner(System.in);
                     opc = objScanner.nextInt();
                     opcMenu(opc);
-                }else if(objProfessor != null){
-                    objProfessor.dadosProfessor(); 
-                     Thread.sleep(3000);
-                     listaMenu();
-                    Scanner objScanner = new Scanner(System.in);
-                    opc = objScanner.nextInt();
-                    opcMenu(opc);
+                    break;                
+                                              // ACESSO A ÁREA EXIBIR DADOS PROFESSOR
+                case 2:
+                    if(objProfessor == null){
+                        System.out.println(" Nenhum Professor foi cadastrado! ");
+                        Thread.sleep(3000);
+                        objMenu = new Menu();
+                        listaMenu();
+                        objScanner = new Scanner(System.in);
+                        opc = objScanner.nextInt();
+                        opcMenu(opc);
+                    }else if(objProfessor != null){
+                        objProfessor.dadosProfessor(); 
+                        Thread.sleep(3000);
+                        listaMenu();
+                        objScanner = new Scanner(System.in);
+                        opc = objScanner.nextInt();
+                        opcMenu(opc);
                 }
             }
-            
                                                 // SAIR DO PROGRAMA
         }else if (opc == 3){
                 System.out.println(" ATÉ LOGO! ");
