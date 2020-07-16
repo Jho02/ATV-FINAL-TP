@@ -7,7 +7,7 @@ public class Menu {
     Menu  objMenu;
     Aluno objAluno;
     Professor objProfessor;
-    Scanner objScanner;
+    Scanner objScanner = null;
     
     public void listaMenu() throws InterruptedException{
         System.out.println("DESEJA ACESSAR A ÁREA DE ALUNO OU PROFESSOR ?");
